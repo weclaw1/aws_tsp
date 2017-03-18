@@ -10,7 +10,7 @@ addons:
     packages:
       - gcc-6
       - g++-6
-      - clang-3.7
+      - clang-3.9
       - openjdk-8-jdk
 
 env: 
