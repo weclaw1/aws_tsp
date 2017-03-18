@@ -1,0 +1,27 @@
+language: cpp
+dist: trusty
+sudo: false
+
+addons:
+  apt:
+    sources:
+      - llvm-toolchain-trusty-3.9
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-6
+      - g++-6
+      - clang-3.7
+      - openjdk-8-jdk
+
+env: 
+  -  TO_TEST=java_backend JDK=openjdk8
+  -  TO_TEST=tsp_core COMPILER_CC=gcc-6 COMPILER_CXX=g++-6
+  -  TO_TEST=tsp_core COMPILER_CC=clang-3.9 COMPILER_CXX=clang++-3.9
+  
+
+before_script:
+  - if [ "$TO_TEST" = "java_backend" ]; then jdk_switcher use $JDK; fi
+  - if [ "$TO_TEST" = "tsp_core" ]; then export CC=$COMPILER_CC && export CXX=$COMPILER_CXX ; fi
+script: 
+  - if [ "$TO_TEST" = "java_backend" ]; then cd java_backend && ./gradlew build; fi
+  - if [ "$TO_TEST" = "tsp_core" ]; then cd tsp_core && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug .. && make; fi
