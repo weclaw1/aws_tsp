@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message Task {
+    string id = 1;
+    repeated Node nodes = 2;
+}
+
+message Node {
+    string name = 1;
+    repeated Edge edges = 2;
+}
+
+message Edge {
+    string nodeName = 1;
+    int32 length = 2;
+}
