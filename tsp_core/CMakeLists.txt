@@ -5,7 +5,7 @@ project(tsp_core)
 
 include(FindProtobuf)
 find_package(Protobuf REQUIRED)
-include_directories(${PROTOBUF_INCLUDE_DIR})
+include_directories(${PROTOBUF_INCLUDE_DIRS})
 
 
 add_subdirectory(src)
