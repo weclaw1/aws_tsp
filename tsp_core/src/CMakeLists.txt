@@ -6,4 +6,4 @@ set(HEADERS
 )
 
 add_executable(${PROJECT_NAME} ${SRCS} ${HEADERS})
-#target_link_libraries(${PROJECT_NAME} tutaj inne biblioteki)
+target_link_libraries(${PROJECT_NAME} ${PROTOBUF_LIBRARIES})

@@ -12,6 +12,7 @@ addons:
       - g++-6
       - clang-3.9
       - openjdk-8-jdk
+      - libprotobuf-dev
 
 env: 
   -  TO_TEST=java_backend JDK=openjdk8
