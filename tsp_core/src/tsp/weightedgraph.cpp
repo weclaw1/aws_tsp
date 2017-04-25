@@ -25,7 +25,7 @@ std::size_t WeightedGraph::size()
     return sizeOfGraph;
 }
 
-bool WeightedGraph::contains(const std::__cxx11::string &name)
+bool WeightedGraph::contains(const std::string &name)
 {
     if(nodesMap.count(name) > 0) {
         return true;
@@ -38,19 +38,19 @@ bool WeightedGraph::nodesHaveEdge(const std::string &firstNode, const std::strin
     std::shared_ptr<Node> nodeFrom = nodesMap.at(firstNode);
     std::shared_ptr<Node> nodeTo = nodesMap.at(secondNode);
     for(Edge &edge : nodeFrom->edges) {
-        if(edge.node->name == nodeTo->name) {
+        if(edge.node.lock()->name == nodeTo->name) {
             return true;
         }
     }
     return false;
 }
 
-int WeightedGraph::edgeWeight(const std::__cxx11::string &from, const std::__cxx11::string &to)
+int WeightedGraph::edgeWeight(const std::string &from, const std::string &to)
 {
     std::shared_ptr<Node> nodeFrom = nodesMap.at(from);
     std::shared_ptr<Node> nodeTo = nodesMap.at(to);
     for(Edge &edge : nodeFrom->edges) {
-        if(edge.node->name == nodeTo->name) {
+        if(edge.node.lock()->name == nodeTo->name) {
             return edge.weight;
         }
     }
@@ -65,7 +65,7 @@ void WeightedGraph::print()
         }
         std::cout << node.first << " - ";
         for(Edge &edge : node.second->edges) {
-            std::cout << "( " << edge.weight << "->" << edge.node->name << " )";
+            std::cout << "( " << edge.weight << "->" << edge.node.lock()->name << " )";
         }
         std::cout << std::endl;
     }
@@ -92,13 +92,13 @@ void WeightedGraph::addEdge(const std::string &firstNode, const std::string &sec
 void WeightedGraph::removeEdge(const std::string &firstNode, const std::string &secondNode)
 {
     for(int i = 0; i < nodesMap.at(firstNode)->edges.size(); i++) {
-        if(nodesMap.at(firstNode)->edges[i].node->name == secondNode) {
+        if(nodesMap.at(firstNode)->edges[i].node.lock()->name == secondNode) {
             nodesMap.at(firstNode)->edges.erase(nodesMap.at(firstNode)->edges.begin()+i);
             break;
         }
     }
     for(int i = 0; i < nodesMap.at(secondNode)->edges.size(); i++) {
-        if(nodesMap.at(secondNode)->edges[i].node->name == firstNode) {
+        if(nodesMap.at(secondNode)->edges[i].node.lock()->name == firstNode) {
             nodesMap.at(secondNode)->edges.erase(nodesMap.at(secondNode)->edges.begin()+i);
             break;
         }

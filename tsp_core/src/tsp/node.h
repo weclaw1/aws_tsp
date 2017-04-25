@@ -8,8 +8,8 @@ class Node;
 
 struct Edge {
     Edge(const std::shared_ptr<Node> &node, const int weight) : node(node), weight(weight) {}
-    Edge() : node(nullptr), weight(0) {}
-    std::shared_ptr<Node> node;
+    Edge() : weight(0) {}
+    std::weak_ptr<Node> node;
     int weight;
 };
 

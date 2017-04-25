@@ -1,9 +1,9 @@
 #include <iostream>
 #include <memory>
 
-#include "farthestinsertiontsp.h"
-#include "weightedgraph.h"
-#include "node.h"
+#include "tsp/farthestinsertiontsp.h"
+#include "tsp/weightedgraph.h"
+#include "tsp/node.h"
 
 int main()
 {

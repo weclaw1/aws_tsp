@@ -9,3 +9,4 @@ include_directories(${PROTOBUF_INCLUDE_DIRS})
 
 
 add_subdirectory(src)
+add_subdirectory(test)

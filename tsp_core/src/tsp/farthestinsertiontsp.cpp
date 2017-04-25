@@ -46,7 +46,7 @@ std::string FarthestInsertionTSP::maxDistNode()
             continue;
         }
         for(Edge &edge : node.second->edges) {
-            if(result.contains(edge.node->name) && edge.weight > maxDist) {
+            if(result.contains(edge.node.lock()->name) && edge.weight > maxDist) {
                 maxDist = edge.weight;
                 maxDistNode = node.first;
             }
@@ -64,8 +64,8 @@ void FarthestInsertionTSP::insertWithMinimumCost(const std::string &maxDistNode)
 
     if(result.size() == 1) {
         for(Edge &edge : inputGraph->getNodesMap()[maxDistNode]->edges) {
-            if(result.contains(edge.node->name)) {
-                nodeFrom = edge.node->name;
+            if(result.contains(edge.node.lock()->name)) {
+                nodeFrom = edge.node.lock()->name;
                 nodeFromDist = edge.weight;
             }
         }
@@ -78,15 +78,15 @@ void FarthestInsertionTSP::insertWithMinimumCost(const std::string &maxDistNode)
 
     for(auto &node : result.getNodesMap()) {
         for(Edge &edge : node.second->edges) {
-            if(inputGraph->nodesHaveEdge(node.first, maxDistNode) && inputGraph->nodesHaveEdge(edge.node->name, maxDistNode)) {
-                int cost = inputGraph->edgeWeight(node.first, maxDistNode) + inputGraph->edgeWeight(edge.node->name, maxDistNode) -
+            if(inputGraph->nodesHaveEdge(node.first, maxDistNode) && inputGraph->nodesHaveEdge(edge.node.lock()->name, maxDistNode)) {
+                int cost = inputGraph->edgeWeight(node.first, maxDistNode) + inputGraph->edgeWeight(edge.node.lock()->name, maxDistNode) -
                         edge.weight;
                 if(cost < lowestCost) {
                     lowestCost = cost;
                     nodeFrom = node.first;
-                    nodeTo = edge.node->name;
+                    nodeTo = edge.node.lock()->name;
                     nodeFromDist = inputGraph->edgeWeight(node.first, maxDistNode);
-                    nodeToDist = inputGraph->edgeWeight(edge.node->name, maxDistNode);
+                    nodeToDist = inputGraph->edgeWeight(edge.node.lock()->name, maxDistNode);
                 }
             }
         }
