@@ -1,4 +1,5 @@
 syntax = "proto3";
+package protobuf;
 
 message Task {
     string id = 1;

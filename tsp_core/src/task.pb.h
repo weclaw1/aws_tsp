@@ -29,6 +29,8 @@
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
+namespace protobuf {
+
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_task_2eproto();
 void protobuf_InitDefaults_task_2eproto();
@@ -41,7 +43,7 @@ class Task;
 
 // ===================================================================
 
-class Task : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Task) */ {
+class Task : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:protobuf.Task) */ {
  public:
   Task();
   virtual ~Task();
@@ -115,23 +117,23 @@ class Task : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   ::std::string* release_id();
   void set_allocated_id(::std::string* id);
 
-  // repeated .Node nodes = 2;
+  // repeated .protobuf.Node nodes = 2;
   int nodes_size() const;
   void clear_nodes();
   static const int kNodesFieldNumber = 2;
-  const ::Node& nodes(int index) const;
-  ::Node* mutable_nodes(int index);
-  ::Node* add_nodes();
-  ::google::protobuf::RepeatedPtrField< ::Node >*
+  const ::protobuf::Node& nodes(int index) const;
+  ::protobuf::Node* mutable_nodes(int index);
+  ::protobuf::Node* add_nodes();
+  ::google::protobuf::RepeatedPtrField< ::protobuf::Node >*
       mutable_nodes();
-  const ::google::protobuf::RepeatedPtrField< ::Node >&
+  const ::google::protobuf::RepeatedPtrField< ::protobuf::Node >&
       nodes() const;
 
-  // @@protoc_insertion_point(class_scope:Task)
+  // @@protoc_insertion_point(class_scope:protobuf.Task)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::Node > nodes_;
+  ::google::protobuf::RepeatedPtrField< ::protobuf::Node > nodes_;
   ::google::protobuf::internal::ArenaStringPtr id_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_task_2eproto_impl();
@@ -145,7 +147,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<Task> Task_default_in
 
 // -------------------------------------------------------------------
 
-class Node : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Node) */ {
+class Node : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:protobuf.Node) */ {
  public:
   Node();
   virtual ~Node();
@@ -219,23 +221,23 @@ class Node : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // repeated .Edge edges = 2;
+  // repeated .protobuf.Edge edges = 2;
   int edges_size() const;
   void clear_edges();
   static const int kEdgesFieldNumber = 2;
-  const ::Edge& edges(int index) const;
-  ::Edge* mutable_edges(int index);
-  ::Edge* add_edges();
-  ::google::protobuf::RepeatedPtrField< ::Edge >*
+  const ::protobuf::Edge& edges(int index) const;
+  ::protobuf::Edge* mutable_edges(int index);
+  ::protobuf::Edge* add_edges();
+  ::google::protobuf::RepeatedPtrField< ::protobuf::Edge >*
       mutable_edges();
-  const ::google::protobuf::RepeatedPtrField< ::Edge >&
+  const ::google::protobuf::RepeatedPtrField< ::protobuf::Edge >&
       edges() const;
 
-  // @@protoc_insertion_point(class_scope:Node)
+  // @@protoc_insertion_point(class_scope:protobuf.Node)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::Edge > edges_;
+  ::google::protobuf::RepeatedPtrField< ::protobuf::Edge > edges_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_task_2eproto_impl();
@@ -249,7 +251,7 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<Node> Node_default_in
 
 // -------------------------------------------------------------------
 
-class Edge : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Edge) */ {
+class Edge : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:protobuf.Edge) */ {
  public:
   Edge();
   virtual ~Edge();
@@ -329,7 +331,7 @@ class Edge : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   ::google::protobuf::int32 length() const;
   void set_length(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:Edge)
+  // @@protoc_insertion_point(class_scope:protobuf.Edge)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -358,32 +360,32 @@ inline void Task::clear_id() {
   id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& Task::id() const {
-  // @@protoc_insertion_point(field_get:Task.id)
+  // @@protoc_insertion_point(field_get:protobuf.Task.id)
   return id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Task::set_id(const ::std::string& value) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Task.id)
+  // @@protoc_insertion_point(field_set:protobuf.Task.id)
 }
 inline void Task::set_id(const char* value) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Task.id)
+  // @@protoc_insertion_point(field_set_char:protobuf.Task.id)
 }
 inline void Task::set_id(const char* value, size_t size) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Task.id)
+  // @@protoc_insertion_point(field_set_pointer:protobuf.Task.id)
 }
 inline ::std::string* Task::mutable_id() {
   
-  // @@protoc_insertion_point(field_mutable:Task.id)
+  // @@protoc_insertion_point(field_mutable:protobuf.Task.id)
   return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Task::release_id() {
-  // @@protoc_insertion_point(field_release:Task.id)
+  // @@protoc_insertion_point(field_release:protobuf.Task.id)
   
   return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -394,36 +396,36 @@ inline void Task::set_allocated_id(::std::string* id) {
     
   }
   id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
-  // @@protoc_insertion_point(field_set_allocated:Task.id)
+  // @@protoc_insertion_point(field_set_allocated:protobuf.Task.id)
 }
 
-// repeated .Node nodes = 2;
+// repeated .protobuf.Node nodes = 2;
 inline int Task::nodes_size() const {
   return nodes_.size();
 }
 inline void Task::clear_nodes() {
   nodes_.Clear();
 }
-inline const ::Node& Task::nodes(int index) const {
-  // @@protoc_insertion_point(field_get:Task.nodes)
+inline const ::protobuf::Node& Task::nodes(int index) const {
+  // @@protoc_insertion_point(field_get:protobuf.Task.nodes)
   return nodes_.Get(index);
 }
-inline ::Node* Task::mutable_nodes(int index) {
-  // @@protoc_insertion_point(field_mutable:Task.nodes)
+inline ::protobuf::Node* Task::mutable_nodes(int index) {
+  // @@protoc_insertion_point(field_mutable:protobuf.Task.nodes)
   return nodes_.Mutable(index);
 }
-inline ::Node* Task::add_nodes() {
-  // @@protoc_insertion_point(field_add:Task.nodes)
+inline ::protobuf::Node* Task::add_nodes() {
+  // @@protoc_insertion_point(field_add:protobuf.Task.nodes)
   return nodes_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::Node >*
+inline ::google::protobuf::RepeatedPtrField< ::protobuf::Node >*
 Task::mutable_nodes() {
-  // @@protoc_insertion_point(field_mutable_list:Task.nodes)
+  // @@protoc_insertion_point(field_mutable_list:protobuf.Task.nodes)
   return &nodes_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::Node >&
+inline const ::google::protobuf::RepeatedPtrField< ::protobuf::Node >&
 Task::nodes() const {
-  // @@protoc_insertion_point(field_list:Task.nodes)
+  // @@protoc_insertion_point(field_list:protobuf.Task.nodes)
   return nodes_;
 }
 
@@ -439,32 +441,32 @@ inline void Node::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& Node::name() const {
-  // @@protoc_insertion_point(field_get:Node.name)
+  // @@protoc_insertion_point(field_get:protobuf.Node.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Node::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Node.name)
+  // @@protoc_insertion_point(field_set:protobuf.Node.name)
 }
 inline void Node::set_name(const char* value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Node.name)
+  // @@protoc_insertion_point(field_set_char:protobuf.Node.name)
 }
 inline void Node::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Node.name)
+  // @@protoc_insertion_point(field_set_pointer:protobuf.Node.name)
 }
 inline ::std::string* Node::mutable_name() {
   
-  // @@protoc_insertion_point(field_mutable:Node.name)
+  // @@protoc_insertion_point(field_mutable:protobuf.Node.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Node::release_name() {
-  // @@protoc_insertion_point(field_release:Node.name)
+  // @@protoc_insertion_point(field_release:protobuf.Node.name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -475,36 +477,36 @@ inline void Node::set_allocated_name(::std::string* name) {
     
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:Node.name)
+  // @@protoc_insertion_point(field_set_allocated:protobuf.Node.name)
 }
 
-// repeated .Edge edges = 2;
+// repeated .protobuf.Edge edges = 2;
 inline int Node::edges_size() const {
   return edges_.size();
 }
 inline void Node::clear_edges() {
   edges_.Clear();
 }
-inline const ::Edge& Node::edges(int index) const {
-  // @@protoc_insertion_point(field_get:Node.edges)
+inline const ::protobuf::Edge& Node::edges(int index) const {
+  // @@protoc_insertion_point(field_get:protobuf.Node.edges)
   return edges_.Get(index);
 }
-inline ::Edge* Node::mutable_edges(int index) {
-  // @@protoc_insertion_point(field_mutable:Node.edges)
+inline ::protobuf::Edge* Node::mutable_edges(int index) {
+  // @@protoc_insertion_point(field_mutable:protobuf.Node.edges)
   return edges_.Mutable(index);
 }
-inline ::Edge* Node::add_edges() {
-  // @@protoc_insertion_point(field_add:Node.edges)
+inline ::protobuf::Edge* Node::add_edges() {
+  // @@protoc_insertion_point(field_add:protobuf.Node.edges)
   return edges_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::Edge >*
+inline ::google::protobuf::RepeatedPtrField< ::protobuf::Edge >*
 Node::mutable_edges() {
-  // @@protoc_insertion_point(field_mutable_list:Node.edges)
+  // @@protoc_insertion_point(field_mutable_list:protobuf.Node.edges)
   return &edges_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::Edge >&
+inline const ::google::protobuf::RepeatedPtrField< ::protobuf::Edge >&
 Node::edges() const {
-  // @@protoc_insertion_point(field_list:Node.edges)
+  // @@protoc_insertion_point(field_list:protobuf.Node.edges)
   return edges_;
 }
 
@@ -520,32 +522,32 @@ inline void Edge::clear_nodename() {
   nodename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& Edge::nodename() const {
-  // @@protoc_insertion_point(field_get:Edge.nodeName)
+  // @@protoc_insertion_point(field_get:protobuf.Edge.nodeName)
   return nodename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Edge::set_nodename(const ::std::string& value) {
   
   nodename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Edge.nodeName)
+  // @@protoc_insertion_point(field_set:protobuf.Edge.nodeName)
 }
 inline void Edge::set_nodename(const char* value) {
   
   nodename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Edge.nodeName)
+  // @@protoc_insertion_point(field_set_char:protobuf.Edge.nodeName)
 }
 inline void Edge::set_nodename(const char* value, size_t size) {
   
   nodename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Edge.nodeName)
+  // @@protoc_insertion_point(field_set_pointer:protobuf.Edge.nodeName)
 }
 inline ::std::string* Edge::mutable_nodename() {
   
-  // @@protoc_insertion_point(field_mutable:Edge.nodeName)
+  // @@protoc_insertion_point(field_mutable:protobuf.Edge.nodeName)
   return nodename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Edge::release_nodename() {
-  // @@protoc_insertion_point(field_release:Edge.nodeName)
+  // @@protoc_insertion_point(field_release:protobuf.Edge.nodeName)
   
   return nodename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -556,7 +558,7 @@ inline void Edge::set_allocated_nodename(::std::string* nodename) {
     
   }
   nodename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), nodename);
-  // @@protoc_insertion_point(field_set_allocated:Edge.nodeName)
+  // @@protoc_insertion_point(field_set_allocated:protobuf.Edge.nodeName)
 }
 
 // optional int32 length = 2;
@@ -564,13 +566,13 @@ inline void Edge::clear_length() {
   length_ = 0;
 }
 inline ::google::protobuf::int32 Edge::length() const {
-  // @@protoc_insertion_point(field_get:Edge.length)
+  // @@protoc_insertion_point(field_get:protobuf.Edge.length)
   return length_;
 }
 inline void Edge::set_length(::google::protobuf::int32 value) {
   
   length_ = value;
-  // @@protoc_insertion_point(field_set:Edge.length)
+  // @@protoc_insertion_point(field_set:protobuf.Edge.length)
 }
 
 inline const Edge* Edge::internal_default_instance() {
@@ -583,6 +585,8 @@ inline const Edge* Edge::internal_default_instance() {
 
 
 // @@protoc_insertion_point(namespace_scope)
+
+}  // namespace protobuf
 
 // @@protoc_insertion_point(global_scope)
 
