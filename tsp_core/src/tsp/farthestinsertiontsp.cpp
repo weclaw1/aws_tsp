@@ -34,6 +34,7 @@ void FarthestInsertionTSP::init()
 {
     std::string randomNode = getRandomNode()->name;
     result.addNode(randomNode);
+    result.addEdge(randomNode, randomNode, 0);
     removed.insert(randomNode);
 }
 
@@ -62,25 +63,11 @@ void FarthestInsertionTSP::insertWithMinimumCost(const std::string &maxDistNode)
     std::string nodeTo;
     int nodeFromDist, nodeToDist;
 
-    if(result.size() == 1) {
-        for(Edge &edge : inputGraph->getNodesMap()[maxDistNode]->edges) {
-            if(result.contains(edge.node.lock()->name)) {
-                nodeFrom = edge.node.lock()->name;
-                nodeFromDist = edge.weight;
-            }
-        }
-        result.addNode(maxDistNode);
-        result.addEdge(nodeFrom, maxDistNode, nodeFromDist);
-        removed.insert(maxDistNode);
-        tourWeight = 2 * nodeFromDist;
-        return;
-    }
-
     for(auto &node : result.getNodesMap()) {
         for(Edge &edge : node.second->edges) {
             if(inputGraph->nodesHaveEdge(node.first, maxDistNode) && inputGraph->nodesHaveEdge(edge.node.lock()->name, maxDistNode)) {
-                int cost = inputGraph->edgeWeight(node.first, maxDistNode) + inputGraph->edgeWeight(edge.node.lock()->name, maxDistNode) -
-                        edge.weight;
+                int cost = inputGraph->edgeWeight(node.first, maxDistNode) +
+                        inputGraph->edgeWeight(edge.node.lock()->name, maxDistNode) - edge.weight;
                 if(cost < lowestCost) {
                     lowestCost = cost;
                     nodeFrom = node.first;
@@ -92,9 +79,7 @@ void FarthestInsertionTSP::insertWithMinimumCost(const std::string &maxDistNode)
         }
     }
 
-    if(result.size() > 2) {
-        result.removeEdge(nodeFrom, nodeTo);
-    }
+    result.removeEdge(nodeFrom, nodeTo);
     result.addNode(maxDistNode);
     result.addEdge(nodeFrom, maxDistNode, nodeFromDist);
     result.addEdge(nodeTo, maxDistNode, nodeToDist);

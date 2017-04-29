@@ -57,6 +57,26 @@ int WeightedGraph::edgeWeight(const std::string &from, const std::string &to)
     throw std::out_of_range(from + " does not have edge to " + to);
 }
 
+std::size_t WeightedGraph::edgesSize() const
+{
+    std::size_t numberOfEdges = 0;
+    for(auto &node : nodesMap) {
+        numberOfEdges += node.second->edges.size();
+    }
+    return numberOfEdges;
+}
+
+long WeightedGraph::totalEdgesWeight()
+{
+    long totalEdgesWeight = 0;
+    for(auto &node : nodesMap) {
+        for(Edge &edge : node.second->edges) {
+            totalEdgesWeight += edge.weight;
+        }
+    }
+    return totalEdgesWeight/2;
+}
+
 void WeightedGraph::print()
 {
     for(auto &node : nodesMap) {
@@ -77,7 +97,7 @@ void WeightedGraph::addNode(const std::string &name)
     sizeOfGraph++;
 }
 
-void WeightedGraph::removeNode(const std::__cxx11::string &name)
+void WeightedGraph::removeNode(const std::string &name)
 {
     nodesMap.erase(name);
     sizeOfGraph--;

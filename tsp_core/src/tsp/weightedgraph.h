@@ -6,6 +6,8 @@
 #include<map>
 #include<memory>
 
+#include<cstdint>
+
 #include "node.h"
 
 class WeightedGraph
@@ -22,6 +24,8 @@ public:
     bool contains(const std::string &name);
     bool nodesHaveEdge(const std::string &firstNode, const std::string &secondNode);
     int edgeWeight(const std::string &from, const std::string &to);
+    std::size_t edgesSize() const;
+    long totalEdgesWeight();
     void print();
 private:
     std::map<std::string, std::shared_ptr<Node>> nodesMap;
