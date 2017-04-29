@@ -17,6 +17,8 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
+namespace protobuf {
+
 namespace {
 
 const ::google::protobuf::Descriptor* Task_descriptor_ = NULL;
@@ -140,10 +142,11 @@ void protobuf_AddDesc_task_2eproto_impl() {
 
   protobuf_InitDefaults_task_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\ntask.proto\"(\n\004Task\022\n\n\002id\030\001 \001(\t\022\024\n\005node"
-    "s\030\002 \003(\0132\005.Node\"*\n\004Node\022\014\n\004name\030\001 \001(\t\022\024\n\005"
-    "edges\030\002 \003(\0132\005.Edge\"(\n\004Edge\022\020\n\010nodeName\030\001"
-    " \001(\t\022\016\n\006length\030\002 \001(\005b\006proto3", 148);
+    "\n\ntask.proto\022\010protobuf\"1\n\004Task\022\n\n\002id\030\001 \001"
+    "(\t\022\035\n\005nodes\030\002 \003(\0132\016.protobuf.Node\"3\n\004Nod"
+    "e\022\014\n\004name\030\001 \001(\t\022\035\n\005edges\030\002 \003(\0132\016.protobu"
+    "f.Edge\"(\n\004Edge\022\020\n\010nodeName\030\001 \001(\t\022\016\n\006leng"
+    "th\030\002 \001(\005b\006proto3", 176);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "task.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_task_2eproto);
@@ -182,7 +185,7 @@ Task::Task()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_task_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Task)
+  // @@protoc_insertion_point(constructor:protobuf.Task)
 }
 
 void Task::InitAsDefaultInstance() {
@@ -193,7 +196,7 @@ Task::Task(const Task& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Task)
+  // @@protoc_insertion_point(copy_constructor:protobuf.Task)
 }
 
 void Task::SharedCtor() {
@@ -202,7 +205,7 @@ void Task::SharedCtor() {
 }
 
 Task::~Task() {
-  // @@protoc_insertion_point(destructor:Task)
+  // @@protoc_insertion_point(destructor:protobuf.Task)
   SharedDtor();
 }
 
@@ -236,7 +239,7 @@ Task* Task::New(::google::protobuf::Arena* arena) const {
 }
 
 void Task::Clear() {
-// @@protoc_insertion_point(message_clear_start:Task)
+// @@protoc_insertion_point(message_clear_start:protobuf.Task)
   id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   nodes_.Clear();
 }
@@ -245,7 +248,7 @@ bool Task::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Task)
+  // @@protoc_insertion_point(parse_start:protobuf.Task)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -259,7 +262,7 @@ bool Task::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->id().data(), this->id().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "Task.id"));
+            "protobuf.Task.id"));
         } else {
           goto handle_unusual;
         }
@@ -267,7 +270,7 @@ bool Task::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .Node nodes = 2;
+      // repeated .protobuf.Node nodes = 2;
       case 2: {
         if (tag == 18) {
          parse_nodes:
@@ -297,64 +300,64 @@ bool Task::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Task)
+  // @@protoc_insertion_point(parse_success:protobuf.Task)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Task)
+  // @@protoc_insertion_point(parse_failure:protobuf.Task)
   return false;
 #undef DO_
 }
 
 void Task::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Task)
+  // @@protoc_insertion_point(serialize_start:protobuf.Task)
   // optional string id = 1;
   if (this->id().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->id().data(), this->id().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Task.id");
+      "protobuf.Task.id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->id(), output);
   }
 
-  // repeated .Node nodes = 2;
+  // repeated .protobuf.Node nodes = 2;
   for (unsigned int i = 0, n = this->nodes_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->nodes(i), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Task)
+  // @@protoc_insertion_point(serialize_end:protobuf.Task)
 }
 
 ::google::protobuf::uint8* Task::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:Task)
+  // @@protoc_insertion_point(serialize_to_array_start:protobuf.Task)
   // optional string id = 1;
   if (this->id().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->id().data(), this->id().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Task.id");
+      "protobuf.Task.id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->id(), target);
   }
 
-  // repeated .Node nodes = 2;
+  // repeated .protobuf.Node nodes = 2;
   for (unsigned int i = 0, n = this->nodes_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         2, this->nodes(i), false, target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Task)
+  // @@protoc_insertion_point(serialize_to_array_end:protobuf.Task)
   return target;
 }
 
 size_t Task::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Task)
+// @@protoc_insertion_point(message_byte_size_start:protobuf.Task)
   size_t total_size = 0;
 
   // optional string id = 1;
@@ -364,7 +367,7 @@ size_t Task::ByteSizeLong() const {
         this->id());
   }
 
-  // repeated .Node nodes = 2;
+  // repeated .protobuf.Node nodes = 2;
   {
     unsigned int count = this->nodes_size();
     total_size += 1UL * count;
@@ -383,22 +386,22 @@ size_t Task::ByteSizeLong() const {
 }
 
 void Task::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Task)
+// @@protoc_insertion_point(generalized_merge_from_start:protobuf.Task)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const Task* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const Task>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Task)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protobuf.Task)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Task)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:protobuf.Task)
     UnsafeMergeFrom(*source);
   }
 }
 
 void Task::MergeFrom(const Task& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Task)
+// @@protoc_insertion_point(class_specific_merge_from_start:protobuf.Task)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -416,14 +419,14 @@ void Task::UnsafeMergeFrom(const Task& from) {
 }
 
 void Task::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Task)
+// @@protoc_insertion_point(generalized_copy_from_start:protobuf.Task)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Task::CopyFrom(const Task& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Task)
+// @@protoc_insertion_point(class_specific_copy_from_start:protobuf.Task)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
@@ -461,32 +464,32 @@ void Task::clear_id() {
   id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 const ::std::string& Task::id() const {
-  // @@protoc_insertion_point(field_get:Task.id)
+  // @@protoc_insertion_point(field_get:protobuf.Task.id)
   return id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void Task::set_id(const ::std::string& value) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Task.id)
+  // @@protoc_insertion_point(field_set:protobuf.Task.id)
 }
 void Task::set_id(const char* value) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Task.id)
+  // @@protoc_insertion_point(field_set_char:protobuf.Task.id)
 }
 void Task::set_id(const char* value, size_t size) {
   
   id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Task.id)
+  // @@protoc_insertion_point(field_set_pointer:protobuf.Task.id)
 }
 ::std::string* Task::mutable_id() {
   
-  // @@protoc_insertion_point(field_mutable:Task.id)
+  // @@protoc_insertion_point(field_mutable:protobuf.Task.id)
   return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 ::std::string* Task::release_id() {
-  // @@protoc_insertion_point(field_release:Task.id)
+  // @@protoc_insertion_point(field_release:protobuf.Task.id)
   
   return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -497,36 +500,36 @@ void Task::set_allocated_id(::std::string* id) {
     
   }
   id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
-  // @@protoc_insertion_point(field_set_allocated:Task.id)
+  // @@protoc_insertion_point(field_set_allocated:protobuf.Task.id)
 }
 
-// repeated .Node nodes = 2;
+// repeated .protobuf.Node nodes = 2;
 int Task::nodes_size() const {
   return nodes_.size();
 }
 void Task::clear_nodes() {
   nodes_.Clear();
 }
-const ::Node& Task::nodes(int index) const {
-  // @@protoc_insertion_point(field_get:Task.nodes)
+const ::protobuf::Node& Task::nodes(int index) const {
+  // @@protoc_insertion_point(field_get:protobuf.Task.nodes)
   return nodes_.Get(index);
 }
-::Node* Task::mutable_nodes(int index) {
-  // @@protoc_insertion_point(field_mutable:Task.nodes)
+::protobuf::Node* Task::mutable_nodes(int index) {
+  // @@protoc_insertion_point(field_mutable:protobuf.Task.nodes)
   return nodes_.Mutable(index);
 }
-::Node* Task::add_nodes() {
-  // @@protoc_insertion_point(field_add:Task.nodes)
+::protobuf::Node* Task::add_nodes() {
+  // @@protoc_insertion_point(field_add:protobuf.Task.nodes)
   return nodes_.Add();
 }
-::google::protobuf::RepeatedPtrField< ::Node >*
+::google::protobuf::RepeatedPtrField< ::protobuf::Node >*
 Task::mutable_nodes() {
-  // @@protoc_insertion_point(field_mutable_list:Task.nodes)
+  // @@protoc_insertion_point(field_mutable_list:protobuf.Task.nodes)
   return &nodes_;
 }
-const ::google::protobuf::RepeatedPtrField< ::Node >&
+const ::google::protobuf::RepeatedPtrField< ::protobuf::Node >&
 Task::nodes() const {
-  // @@protoc_insertion_point(field_list:Task.nodes)
+  // @@protoc_insertion_point(field_list:protobuf.Task.nodes)
   return nodes_;
 }
 
@@ -546,7 +549,7 @@ Node::Node()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_task_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Node)
+  // @@protoc_insertion_point(constructor:protobuf.Node)
 }
 
 void Node::InitAsDefaultInstance() {
@@ -557,7 +560,7 @@ Node::Node(const Node& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Node)
+  // @@protoc_insertion_point(copy_constructor:protobuf.Node)
 }
 
 void Node::SharedCtor() {
@@ -566,7 +569,7 @@ void Node::SharedCtor() {
 }
 
 Node::~Node() {
-  // @@protoc_insertion_point(destructor:Node)
+  // @@protoc_insertion_point(destructor:protobuf.Node)
   SharedDtor();
 }
 
@@ -600,7 +603,7 @@ Node* Node::New(::google::protobuf::Arena* arena) const {
 }
 
 void Node::Clear() {
-// @@protoc_insertion_point(message_clear_start:Node)
+// @@protoc_insertion_point(message_clear_start:protobuf.Node)
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   edges_.Clear();
 }
@@ -609,7 +612,7 @@ bool Node::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Node)
+  // @@protoc_insertion_point(parse_start:protobuf.Node)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -623,7 +626,7 @@ bool Node::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "Node.name"));
+            "protobuf.Node.name"));
         } else {
           goto handle_unusual;
         }
@@ -631,7 +634,7 @@ bool Node::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .Edge edges = 2;
+      // repeated .protobuf.Edge edges = 2;
       case 2: {
         if (tag == 18) {
          parse_edges:
@@ -661,64 +664,64 @@ bool Node::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Node)
+  // @@protoc_insertion_point(parse_success:protobuf.Node)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Node)
+  // @@protoc_insertion_point(parse_failure:protobuf.Node)
   return false;
 #undef DO_
 }
 
 void Node::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Node)
+  // @@protoc_insertion_point(serialize_start:protobuf.Node)
   // optional string name = 1;
   if (this->name().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Node.name");
+      "protobuf.Node.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
 
-  // repeated .Edge edges = 2;
+  // repeated .protobuf.Edge edges = 2;
   for (unsigned int i = 0, n = this->edges_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->edges(i), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Node)
+  // @@protoc_insertion_point(serialize_end:protobuf.Node)
 }
 
 ::google::protobuf::uint8* Node::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:Node)
+  // @@protoc_insertion_point(serialize_to_array_start:protobuf.Node)
   // optional string name = 1;
   if (this->name().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Node.name");
+      "protobuf.Node.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
   }
 
-  // repeated .Edge edges = 2;
+  // repeated .protobuf.Edge edges = 2;
   for (unsigned int i = 0, n = this->edges_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         2, this->edges(i), false, target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Node)
+  // @@protoc_insertion_point(serialize_to_array_end:protobuf.Node)
   return target;
 }
 
 size_t Node::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Node)
+// @@protoc_insertion_point(message_byte_size_start:protobuf.Node)
   size_t total_size = 0;
 
   // optional string name = 1;
@@ -728,7 +731,7 @@ size_t Node::ByteSizeLong() const {
         this->name());
   }
 
-  // repeated .Edge edges = 2;
+  // repeated .protobuf.Edge edges = 2;
   {
     unsigned int count = this->edges_size();
     total_size += 1UL * count;
@@ -747,22 +750,22 @@ size_t Node::ByteSizeLong() const {
 }
 
 void Node::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Node)
+// @@protoc_insertion_point(generalized_merge_from_start:protobuf.Node)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const Node* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const Node>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Node)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protobuf.Node)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Node)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:protobuf.Node)
     UnsafeMergeFrom(*source);
   }
 }
 
 void Node::MergeFrom(const Node& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Node)
+// @@protoc_insertion_point(class_specific_merge_from_start:protobuf.Node)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -780,14 +783,14 @@ void Node::UnsafeMergeFrom(const Node& from) {
 }
 
 void Node::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Node)
+// @@protoc_insertion_point(generalized_copy_from_start:protobuf.Node)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Node::CopyFrom(const Node& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Node)
+// @@protoc_insertion_point(class_specific_copy_from_start:protobuf.Node)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
@@ -825,32 +828,32 @@ void Node::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 const ::std::string& Node::name() const {
-  // @@protoc_insertion_point(field_get:Node.name)
+  // @@protoc_insertion_point(field_get:protobuf.Node.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void Node::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Node.name)
+  // @@protoc_insertion_point(field_set:protobuf.Node.name)
 }
 void Node::set_name(const char* value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Node.name)
+  // @@protoc_insertion_point(field_set_char:protobuf.Node.name)
 }
 void Node::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Node.name)
+  // @@protoc_insertion_point(field_set_pointer:protobuf.Node.name)
 }
 ::std::string* Node::mutable_name() {
   
-  // @@protoc_insertion_point(field_mutable:Node.name)
+  // @@protoc_insertion_point(field_mutable:protobuf.Node.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 ::std::string* Node::release_name() {
-  // @@protoc_insertion_point(field_release:Node.name)
+  // @@protoc_insertion_point(field_release:protobuf.Node.name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -861,36 +864,36 @@ void Node::set_allocated_name(::std::string* name) {
     
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:Node.name)
+  // @@protoc_insertion_point(field_set_allocated:protobuf.Node.name)
 }
 
-// repeated .Edge edges = 2;
+// repeated .protobuf.Edge edges = 2;
 int Node::edges_size() const {
   return edges_.size();
 }
 void Node::clear_edges() {
   edges_.Clear();
 }
-const ::Edge& Node::edges(int index) const {
-  // @@protoc_insertion_point(field_get:Node.edges)
+const ::protobuf::Edge& Node::edges(int index) const {
+  // @@protoc_insertion_point(field_get:protobuf.Node.edges)
   return edges_.Get(index);
 }
-::Edge* Node::mutable_edges(int index) {
-  // @@protoc_insertion_point(field_mutable:Node.edges)
+::protobuf::Edge* Node::mutable_edges(int index) {
+  // @@protoc_insertion_point(field_mutable:protobuf.Node.edges)
   return edges_.Mutable(index);
 }
-::Edge* Node::add_edges() {
-  // @@protoc_insertion_point(field_add:Node.edges)
+::protobuf::Edge* Node::add_edges() {
+  // @@protoc_insertion_point(field_add:protobuf.Node.edges)
   return edges_.Add();
 }
-::google::protobuf::RepeatedPtrField< ::Edge >*
+::google::protobuf::RepeatedPtrField< ::protobuf::Edge >*
 Node::mutable_edges() {
-  // @@protoc_insertion_point(field_mutable_list:Node.edges)
+  // @@protoc_insertion_point(field_mutable_list:protobuf.Node.edges)
   return &edges_;
 }
-const ::google::protobuf::RepeatedPtrField< ::Edge >&
+const ::google::protobuf::RepeatedPtrField< ::protobuf::Edge >&
 Node::edges() const {
-  // @@protoc_insertion_point(field_list:Node.edges)
+  // @@protoc_insertion_point(field_list:protobuf.Node.edges)
   return edges_;
 }
 
@@ -910,7 +913,7 @@ Edge::Edge()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_task_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Edge)
+  // @@protoc_insertion_point(constructor:protobuf.Edge)
 }
 
 void Edge::InitAsDefaultInstance() {
@@ -921,7 +924,7 @@ Edge::Edge(const Edge& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Edge)
+  // @@protoc_insertion_point(copy_constructor:protobuf.Edge)
 }
 
 void Edge::SharedCtor() {
@@ -931,7 +934,7 @@ void Edge::SharedCtor() {
 }
 
 Edge::~Edge() {
-  // @@protoc_insertion_point(destructor:Edge)
+  // @@protoc_insertion_point(destructor:protobuf.Edge)
   SharedDtor();
 }
 
@@ -965,7 +968,7 @@ Edge* Edge::New(::google::protobuf::Arena* arena) const {
 }
 
 void Edge::Clear() {
-// @@protoc_insertion_point(message_clear_start:Edge)
+// @@protoc_insertion_point(message_clear_start:protobuf.Edge)
   nodename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   length_ = 0;
 }
@@ -974,7 +977,7 @@ bool Edge::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Edge)
+  // @@protoc_insertion_point(parse_start:protobuf.Edge)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -988,7 +991,7 @@ bool Edge::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->nodename().data(), this->nodename().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "Edge.nodeName"));
+            "protobuf.Edge.nodeName"));
         } else {
           goto handle_unusual;
         }
@@ -1024,23 +1027,23 @@ bool Edge::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Edge)
+  // @@protoc_insertion_point(parse_success:protobuf.Edge)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Edge)
+  // @@protoc_insertion_point(parse_failure:protobuf.Edge)
   return false;
 #undef DO_
 }
 
 void Edge::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Edge)
+  // @@protoc_insertion_point(serialize_start:protobuf.Edge)
   // optional string nodeName = 1;
   if (this->nodename().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->nodename().data(), this->nodename().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Edge.nodeName");
+      "protobuf.Edge.nodeName");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->nodename(), output);
   }
@@ -1050,19 +1053,19 @@ void Edge::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->length(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Edge)
+  // @@protoc_insertion_point(serialize_end:protobuf.Edge)
 }
 
 ::google::protobuf::uint8* Edge::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:Edge)
+  // @@protoc_insertion_point(serialize_to_array_start:protobuf.Edge)
   // optional string nodeName = 1;
   if (this->nodename().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->nodename().data(), this->nodename().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Edge.nodeName");
+      "protobuf.Edge.nodeName");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->nodename(), target);
@@ -1073,12 +1076,12 @@ void Edge::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->length(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Edge)
+  // @@protoc_insertion_point(serialize_to_array_end:protobuf.Edge)
   return target;
 }
 
 size_t Edge::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Edge)
+// @@protoc_insertion_point(message_byte_size_start:protobuf.Edge)
   size_t total_size = 0;
 
   // optional string nodeName = 1;
@@ -1103,22 +1106,22 @@ size_t Edge::ByteSizeLong() const {
 }
 
 void Edge::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Edge)
+// @@protoc_insertion_point(generalized_merge_from_start:protobuf.Edge)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const Edge* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const Edge>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Edge)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protobuf.Edge)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Edge)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:protobuf.Edge)
     UnsafeMergeFrom(*source);
   }
 }
 
 void Edge::MergeFrom(const Edge& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Edge)
+// @@protoc_insertion_point(class_specific_merge_from_start:protobuf.Edge)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -1138,14 +1141,14 @@ void Edge::UnsafeMergeFrom(const Edge& from) {
 }
 
 void Edge::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Edge)
+// @@protoc_insertion_point(generalized_copy_from_start:protobuf.Edge)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Edge::CopyFrom(const Edge& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Edge)
+// @@protoc_insertion_point(class_specific_copy_from_start:protobuf.Edge)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
@@ -1183,32 +1186,32 @@ void Edge::clear_nodename() {
   nodename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 const ::std::string& Edge::nodename() const {
-  // @@protoc_insertion_point(field_get:Edge.nodeName)
+  // @@protoc_insertion_point(field_get:protobuf.Edge.nodeName)
   return nodename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void Edge::set_nodename(const ::std::string& value) {
   
   nodename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Edge.nodeName)
+  // @@protoc_insertion_point(field_set:protobuf.Edge.nodeName)
 }
 void Edge::set_nodename(const char* value) {
   
   nodename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Edge.nodeName)
+  // @@protoc_insertion_point(field_set_char:protobuf.Edge.nodeName)
 }
 void Edge::set_nodename(const char* value, size_t size) {
   
   nodename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Edge.nodeName)
+  // @@protoc_insertion_point(field_set_pointer:protobuf.Edge.nodeName)
 }
 ::std::string* Edge::mutable_nodename() {
   
-  // @@protoc_insertion_point(field_mutable:Edge.nodeName)
+  // @@protoc_insertion_point(field_mutable:protobuf.Edge.nodeName)
   return nodename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 ::std::string* Edge::release_nodename() {
-  // @@protoc_insertion_point(field_release:Edge.nodeName)
+  // @@protoc_insertion_point(field_release:protobuf.Edge.nodeName)
   
   return nodename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1219,7 +1222,7 @@ void Edge::set_allocated_nodename(::std::string* nodename) {
     
   }
   nodename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), nodename);
-  // @@protoc_insertion_point(field_set_allocated:Edge.nodeName)
+  // @@protoc_insertion_point(field_set_allocated:protobuf.Edge.nodeName)
 }
 
 // optional int32 length = 2;
@@ -1227,13 +1230,13 @@ void Edge::clear_length() {
   length_ = 0;
 }
 ::google::protobuf::int32 Edge::length() const {
-  // @@protoc_insertion_point(field_get:Edge.length)
+  // @@protoc_insertion_point(field_get:protobuf.Edge.length)
   return length_;
 }
 void Edge::set_length(::google::protobuf::int32 value) {
   
   length_ = value;
-  // @@protoc_insertion_point(field_set:Edge.length)
+  // @@protoc_insertion_point(field_set:protobuf.Edge.length)
 }
 
 inline const Edge* Edge::internal_default_instance() {
@@ -1242,5 +1245,7 @@ inline const Edge* Edge::internal_default_instance() {
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
+
+}  // namespace protobuf
 
 // @@protoc_insertion_point(global_scope)

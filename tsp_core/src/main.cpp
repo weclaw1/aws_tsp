@@ -1,7 +1,11 @@
 #include <iostream>
+#include <memory>
+
+#include "tsp/farthestinsertiontsp.h"
+#include "tsp/weightedgraph.h"
+#include "tsp/node.h"
 
 int main()
 {
-  std::cout << "Hello World!" << std::endl;
   return 0;
 }
