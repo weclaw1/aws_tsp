@@ -2,13 +2,14 @@
 #define FARTHESTINSERTIONTSP_H
 
 #include "weightedgraph.h"
+#include "abstracttspalgorithm.h"
 #include <chrono>
 #include <string>
 #include <set>
 
 #include <random>
 
-class FarthestInsertionTSP
+class FarthestInsertionTSP : public AbstractTSPAlgorithm
 {
 public:
     FarthestInsertionTSP(std::unique_ptr<WeightedGraph> inputGraph)

@@ -6,6 +6,7 @@ set(HEADERS
     weightedgraph.h
     node.h
     farthestinsertiontsp.h
+    abstracttspalgorithm.h
 )
 
 
