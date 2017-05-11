@@ -1,4 +1,5 @@
 set(SRCS
+    abstractdao.cpp
 )
 set(HEADERS
     abstractdao.h

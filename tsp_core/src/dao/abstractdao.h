@@ -1,6 +1,9 @@
 #ifndef ABSTRACT_DAO_H_
 #define ABSTRACT_DAO_H_
 
+#include <string>
+#include <vector>
+
 public class TaskResult
 {
     virtual std::vector<TaskResult> getAllTaskResults() = 0;
