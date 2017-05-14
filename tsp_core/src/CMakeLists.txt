@@ -9,4 +9,4 @@ set(HEADERS
 )
 
 add_executable(${PROJECT_NAME} ${SRCS} ${HEADERS})
-target_link_libraries(${PROJECT_NAME} tsp ${PROTOBUF_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} tsp ${PROTOBUF_LIBRARIES} Threads::Threads)

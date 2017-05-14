@@ -9,6 +9,7 @@ include(FindProtobuf)
 find_package(Protobuf REQUIRED)
 include_directories(${PROTOBUF_INCLUDE_DIRS})
 
+find_package(Threads REQUIRED)
 
 add_subdirectory(src)
 add_subdirectory(test)
