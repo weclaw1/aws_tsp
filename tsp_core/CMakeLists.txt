@@ -13,6 +13,3 @@ find_package(Threads REQUIRED)
 
 add_subdirectory(src)
 add_subdirectory(test)
-
-enable_testing()
-add_test(NAME test_tsp_core COMMAND tsp_core_test)
