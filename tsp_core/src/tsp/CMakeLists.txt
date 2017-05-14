@@ -1,12 +1,17 @@
 set(SRCS
     weightedgraph.cpp
     farthestinsertiontsp.cpp
+    asynctsprunner.cpp
+    weightedgraphtextfilereader.cpp
 )
 set(HEADERS
     weightedgraph.h
     node.h
     farthestinsertiontsp.h
     abstracttspalgorithm.h
+    asynctsprunner.h
+    task.h
+    weightedgraphtextfilereader.h
 )
 
 

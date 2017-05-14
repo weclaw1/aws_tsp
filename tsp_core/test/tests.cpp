@@ -3,6 +3,9 @@
 
 #include "../src/tsp/farthestinsertiontsp.h"
 #include "../src/tsp/weightedgraph.h"
+#include "../src/tsp/weightedgraphtextfilereader.h"
+
+#include <fstream>
 
 TEST_CASE( "Farthest Insertion TSP works", "[tsp]" ) {
 
@@ -53,3 +56,45 @@ TEST_CASE( "Farthest Insertion TSP works", "[tsp]" ) {
         REQUIRE( tsp_solver.getTourWeight() < graphEdgesWeight );
     }
 }
+
+TEST_CASE( "WeightedGraphTextFileReader works", "[input][graph][tsp]") {
+    std::ifstream file ("test_graph.txt");
+    REQUIRE( file.is_open() );
+    WeightedGraph graphFromFile = WeightedGraphTextFileReader::createFromStream(file);
+    WeightedGraph graph;
+    graph.addNode("a");
+    graph.addNode("b");
+    graph.addNode("c");
+    graph.addNode("d");
+    graph.addNode("e");
+    graph.addEdge("a", "b", 500);
+    graph.addEdge("a", "c", 200);
+    graph.addEdge("a", "d", 185);
+    graph.addEdge("a", "e", 205);
+    graph.addEdge("b", "c", 305);
+    graph.addEdge("b", "d", 360);
+    graph.addEdge("b", "e", 340);
+    graph.addEdge("c", "d", 320);
+    graph.addEdge("c", "e", 165);
+    graph.addEdge("d", "e", 302);
+    REQUIRE( graphFromFile.toString() == graph.toString() );
+}
+
+//TEST_CASE( "AsyncTSPRunner works", "[async][tsp]") {
+//    std::unique_ptr<WeightedGraph> graph = std::make_unique<WeightedGraph>();
+//    graph->addNode("a");
+//    graph->addNode("b");
+//    graph->addNode("c");
+//    graph->addNode("d");
+//    graph->addNode("e");
+//    graph->addEdge("a", "b", 500);
+//    graph->addEdge("a", "c", 200);
+//    graph->addEdge("a", "d", 185);
+//    graph->addEdge("a", "e", 205);
+//    graph->addEdge("b", "c", 305);
+//    graph->addEdge("b", "d", 360);
+//    graph->addEdge("b", "e", 340);
+//    graph->addEdge("c", "d", 320);
+//    graph->addEdge("c", "e", 165);
+//    graph->addEdge("d", "e", 302);
+//}
