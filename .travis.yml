@@ -25,4 +25,4 @@ before_script:
   - if [ "$TO_TEST" = "tsp_core" ]; then export CC=$COMPILER_CC && export CXX=$COMPILER_CXX ; fi
 script: 
   - if [ "$TO_TEST" = "java_backend" ]; then cd java_backend && ./gradlew build; fi
-  - if [ "$TO_TEST" = "tsp_core" ]; then cd tsp_core && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug .. && make && ctest --verbose; fi
+  - if [ "$TO_TEST" = "tsp_core" ]; then cd tsp_core && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug .. && make && cd test && ./tsp_core_test; fi

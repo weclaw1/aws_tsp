@@ -27,6 +27,7 @@ public:
     std::size_t edgesSize() const;
     long totalEdgesWeight();
     void print();
+    std::string toString();
 private:
     std::map<std::string, std::shared_ptr<Node>> nodesMap;
     std::size_t sizeOfGraph;

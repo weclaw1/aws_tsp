@@ -1,11 +1,10 @@
 #include <iostream>
 #include <memory>
-
-#include "tsp/farthestinsertiontsp.h"
-#include "tsp/weightedgraph.h"
-#include "tsp/node.h"
+#include <chrono>
+#include <thread>
+#include <fstream>
 
 int main()
 {
-  return 0;
+    return 0;
 }

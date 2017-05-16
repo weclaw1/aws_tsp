@@ -1,6 +1,7 @@
 #include "weightedgraph.h"
 #include <stdexcept>
 #include <iostream>
+#include <sstream>
 
 WeightedGraph::WeightedGraph(std::vector<std::shared_ptr<Node> > &nodes)
 {
@@ -89,6 +90,22 @@ void WeightedGraph::print()
         }
         std::cout << std::endl;
     }
+}
+
+std::string WeightedGraph::toString()
+{
+    std::ostringstream stringStream;
+    for(auto &node : nodesMap) {
+        if(node.second == nullptr) {
+            continue;
+        }
+        stringStream << node.first << " - ";
+        for(Edge &edge : node.second->edges) {
+            stringStream << "( " << edge.weight << "->" << edge.node.lock()->name << " )";
+        }
+        stringStream << std::endl;
+    }
+    return stringStream.str();
 }
 
 void WeightedGraph::addNode(const std::string &name)
