@@ -1,0 +1,52 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Farthest Distance TSP</title>
+
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+  <script src="../node_modules/vis/dist/vis.js"></script>
+  <link href="../node_modules/vis/dist/vis.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+  #tspgraph {
+    width: 800px;
+    height: 600px;
+    border: 1px solid lightgray;
+  }
+  </style>
+</head>
+<body>
+  <div class="row">
+    <div class="col-md-12">
+      <div id="tspgraph"></div>
+    </div>
+    <div id="tspinput "class="col-md-12">
+      <button class="btn btn-default" onclick="addNode()">Add node</button>
+      <button class="btn btn-default" onclick="updateGraphFromTable()">Update</button>
+      <button class="btn btn-default" onclick="removeNode()">Remove node</button>
+      <button class="btn btn-default" onclick="farthestInsertionTsp()">Execute</button>
+      <input type="file" id="fileElem" style="display:none" onchange="handleFiles(this.files)">
+      <button class="btn btn-default" onclick="document.getElementById('fileElem').click()">Load from file...</button>
+      <table class="table table-bordered table-condensed" id="nodesTab">
+        <thead>
+          <tr>
+
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+  <script src="../js/index.js"></script>
+
+  <script src="../js/jquery-3.2.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>

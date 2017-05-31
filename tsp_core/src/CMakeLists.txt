@@ -11,4 +11,4 @@ set(HEADERS
 
 add_executable(${PROJECT_NAME} ${SRCS} ${HEADERS})
 
-target_link_libraries(${PROJECT_NAME} tsp dao ${PROTOBUF_LIBRARIES} Threads::Threads)
+target_link_libraries(${PROJECT_NAME} tsp dao Threads::Threads)
