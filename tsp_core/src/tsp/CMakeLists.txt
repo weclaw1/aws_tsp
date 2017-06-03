@@ -16,3 +16,4 @@ set(HEADERS
 
 
 add_library(tsp STATIC ${SRCS} ${HEADERS})
+target_link_libraries(tsp Threads::Threads)

@@ -12,7 +12,8 @@ addons:
       - g++-6
       - clang-3.9
       - openjdk-8-jdk
-      - libprotobuf-dev
+      - libboost-all-dev
+      - libsqlite3-dev
 
 env: 
   -  TO_TEST=java_frontend JDK=openjdk8
