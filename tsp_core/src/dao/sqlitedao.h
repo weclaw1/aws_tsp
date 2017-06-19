@@ -9,6 +9,8 @@ class SQLiteDAO : public AbstractDAO
 {
 public:
     SQLiteDAO(std::string dbname) : db(dbname.c_str()) {
+        db.execute("CREATE TABLE IF NOT EXISTS TaskResults (token TEXT, nodeFrom TEXT, nodeTo TEXT, weight INTEGER);");
+        db.execute("CREATE TABLE IF NOT EXISTS Tasks (token TEXT, nodeFrom TEXT, nodeTo TEXT, weight INTEGER);");
     }
     std::vector<TaskResult> getAllTaskResults() override;
     TaskResult getTaskResult(std::string token) override;
