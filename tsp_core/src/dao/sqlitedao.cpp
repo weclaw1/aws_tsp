@@ -92,14 +92,14 @@ std::vector<Task> SQLiteDAO::getAllTasks()
       if( resultsMap.count(token) == 0 ) {
           resultsMap.insert( std::pair<std::string, Task>(token, Task(token, WeightedGraph())) );
       }
-      if( !resultsMap[token].resultGraph.contains(nodeFrom) ) {
-          resultsMap[token].resultGraph.addNode(nodeFrom);
+      if( !resultsMap[token].inputGraph.contains(nodeFrom) ) {
+          resultsMap[token].inputGraph.addNode(nodeFrom);
       }
-      if( !resultsMap[token].resultGraph.contains(nodeTo) ) {
-          resultsMap[token].resultGraph.addNode(nodeTo);
+      if( !resultsMap[token].inputGraph.contains(nodeTo) ) {
+          resultsMap[token].inputGraph.addNode(nodeTo);
       }
-      if( !(resultsMap[token].resultGraph.nodesHaveEdge(nodeFrom, nodeTo) || resultsMap[token].resultGraph.nodesHaveEdge(nodeTo, nodeFrom)) ) {
-          resultsMap[token].resultGraph.addEdge(nodeFrom, nodeTo, weight);
+      if( !(resultsMap[token].inputGraph.nodesHaveEdge(nodeFrom, nodeTo) || resultsMap[token].inputGraph.nodesHaveEdge(nodeTo, nodeFrom)) ) {
+          resultsMap[token].inputGraph.addEdge(nodeFrom, nodeTo, weight);
       }
     }
     for( auto &task : resultsMap ) {
@@ -117,14 +117,14 @@ Task SQLiteDAO::getTask(std::string token)
       std::string nodeFrom, nodeTo;
       int weight;
       v.getter() >> nodeFrom >> nodeTo >> weight;
-      if( !result.resultGraph.contains(nodeFrom) ) {
-          result.resultGraph.addNode(nodeFrom);
+      if( !result.inputGraph.contains(nodeFrom) ) {
+          result.inputGraph.addNode(nodeFrom);
       }
-      if( !result.resultGraph.contains(nodeTo) ) {
-          result.resultGraph.addNode(nodeTo);
+      if( !result.inputGraph.contains(nodeTo) ) {
+          result.inputGraph.addNode(nodeTo);
       }
-      if( !(result.resultGraph.nodesHaveEdge(nodeFrom, nodeTo) || result.resultGraph.nodesHaveEdge(nodeTo, nodeFrom)) ) {
-          result.resultGraph.addEdge(nodeFrom, nodeTo, weight);
+      if( !(result.inputGraph.nodesHaveEdge(nodeFrom, nodeTo) || result.inputGraph.nodesHaveEdge(nodeTo, nodeFrom)) ) {
+          result.inputGraph.addEdge(nodeFrom, nodeTo, weight);
       }
     }
     return result;
@@ -132,7 +132,7 @@ Task SQLiteDAO::getTask(std::string token)
 
 void SQLiteDAO::createTask(Task task)
 {
-    for(auto &node : task.resultGraph.getNodesMap()) {
+    for(auto &node : task.inputGraph.getNodesMap()) {
         if(node.second == nullptr) {
             continue;
         }
