@@ -142,3 +142,4 @@ void WeightedGraph::removeEdge(const std::string &firstNode, const std::string &
     }
 
 }
+
