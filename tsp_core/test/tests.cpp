@@ -9,6 +9,8 @@
 #include "../src/tsp/weightedgraphtextfilereader.h"
 #include "../src/tsp/asynctsprunner.h"
 
+#include "../src/dao/sqlitedao.h"
+
 #include <fstream>
 
 TEST_CASE( "Farthest Insertion TSP works", "[tsp]" ) {
@@ -99,3 +101,34 @@ TEST_CASE( "AsyncTSPRunner works", "[async][tsp]") {
     int counter = 0;
     REQUIRE(completedTasks.size() == 100);
 }
+
+TEST_CASE( "DAO works", "[dao][db]") {
+    SQLiteDAO dao("test.db");
+    WeightedGraph graph;
+    graph.addNode("a");
+    graph.addNode("b");
+    graph.addNode("c");
+    graph.addNode("d");
+    graph.addNode("e");
+    graph.addEdge("a", "b", 500);
+    graph.addEdge("a", "c", 200);
+    graph.addEdge("a", "d", 185);
+    graph.addEdge("a", "e", 205);
+    graph.addEdge("b", "c", 305);
+    graph.addEdge("b", "d", 360);
+    graph.addEdge("b", "e", 340);
+    graph.addEdge("c", "d", 320);
+    graph.addEdge("c", "e", 165);
+    graph.addEdge("d", "e", 302);
+    TaskResult result("test",graph);
+    dao.createTaskResult(result);
+    TaskResult test = dao.getTaskResult("test");
+
+    REQUIRE(result.token == test.token);
+    REQUIRE(result.resultGraph.size() == test.resultGraph.size());
+    REQUIRE(result.resultGraph.totalEdgesWeight() == test.resultGraph.totalEdgesWeight());
+    REQUIRE(result.resultGraph.contains("a") == test.resultGraph.contains("a"));
+    REQUIRE(result.resultGraph.nodesHaveEdge("b", "a") == test.resultGraph.nodesHaveEdge("b", "a"));
+}
+
+

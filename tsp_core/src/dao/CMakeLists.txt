@@ -15,6 +15,6 @@ add_library(sqlite3pp INTERFACE)
 target_include_directories(sqlite3pp INTERFACE ${SQLITE_3PP_INCLUDE_DIR})
 
 add_library(dao STATIC ${SRCS} ${HEADERS})
-target_link_libraries(dao ${SQLITE3_LIBRARIES} sqlite3pp)
+target_link_libraries(dao ${SQLITE3_LIBRARIES} sqlite3pp tsp)
 
 

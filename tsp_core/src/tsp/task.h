@@ -5,12 +5,14 @@
 #include "weightedgraph.h"
 
 struct Task {
+    Task() {}
     Task(const std::string &token, WeightedGraph inputGraph) : token(token), inputGraph(inputGraph) {}
     std::string token;
     WeightedGraph inputGraph;
 };
 
 struct TaskResult {
+    TaskResult() {}
     TaskResult(const std::string &token, WeightedGraph resultGraph) : token(token), resultGraph(resultGraph) {}
     std::string token;
     WeightedGraph resultGraph;

@@ -10,4 +10,4 @@ configure_file(test_graph.txt test_graph.txt COPYONLY)
 configure_file(test_graph2.txt test_graph2.txt COPYONLY)
 
 add_executable(tsp_core_test ${TEST_SOURCES})
-target_link_libraries(tsp_core_test tsp Catch Threads::Threads)
+target_link_libraries(tsp_core_test tsp dao Catch Threads::Threads)
