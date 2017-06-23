@@ -158,3 +158,9 @@ void SQLiteDAO::deleteTask(Task task)
     cmd.binder() << task.token;
     cmd.execute();
 }
+
+void SQLiteDAO::clearAllTables()
+{
+    db.execute("DELETE FROM TaskResults;");
+    db.execute("DELETE FROM Tasks;");
+}

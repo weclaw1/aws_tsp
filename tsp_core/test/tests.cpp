@@ -104,6 +104,7 @@ TEST_CASE( "AsyncTSPRunner works", "[async][tsp]") {
 
 TEST_CASE( "DAO works", "[dao][db]") {
     SQLiteDAO dao("test.db");
+    dao.clearAllTables();
     WeightedGraph graph;
     graph.addNode("a");
     graph.addNode("b");
@@ -121,14 +122,103 @@ TEST_CASE( "DAO works", "[dao][db]") {
     graph.addEdge("c", "e", 165);
     graph.addEdge("d", "e", 302);
     TaskResult result("test",graph);
-    dao.createTaskResult(result);
-    TaskResult test = dao.getTaskResult("test");
 
-    REQUIRE(result.token == test.token);
-    REQUIRE(result.resultGraph.size() == test.resultGraph.size());
-    REQUIRE(result.resultGraph.totalEdgesWeight() == test.resultGraph.totalEdgesWeight());
-    REQUIRE(result.resultGraph.contains("a") == test.resultGraph.contains("a"));
-    REQUIRE(result.resultGraph.nodesHaveEdge("b", "a") == test.resultGraph.nodesHaveEdge("b", "a"));
+    SECTION( "CreateTaskResult and GetTaskResult work" ) {
+        dao.createTaskResult(result);
+        TaskResult test = dao.getTaskResult("test");
+
+        REQUIRE(result.token == test.token);
+        REQUIRE(result.resultGraph.size() == test.resultGraph.size());
+        REQUIRE(result.resultGraph.totalEdgesWeight() == test.resultGraph.totalEdgesWeight());
+        REQUIRE(result.resultGraph.contains("a") == test.resultGraph.contains("a"));
+        REQUIRE(result.resultGraph.nodesHaveEdge("b", "a") == test.resultGraph.nodesHaveEdge("b", "a"));
+    }
+
+    SECTION( "GetAllTaskResults work" ) {
+
+        WeightedGraph graph2;
+        graph2.addNode("aa");
+        graph2.addNode("bb");
+        graph2.addNode("cc");
+        graph2.addNode("dd");
+        graph2.addNode("ee");
+        graph2.addEdge("aa", "bb", 500);
+        graph2.addEdge("aa", "cc", 200);
+        graph2.addEdge("aa", "dd", 185);
+        graph2.addEdge("aa", "ee", 205);
+        graph2.addEdge("bb", "cc", 305);
+        graph2.addEdge("bb", "dd", 360);
+        graph2.addEdge("bb", "ee", 340);
+        graph2.addEdge("cc", "dd", 320);
+        graph2.addEdge("cc", "ee", 165);
+        graph2.addEdge("dd", "ee", 302);
+        TaskResult result2("test2",graph2);
+
+        dao.createTaskResult(result2);
+        dao.createTaskResult(result);
+        std::vector<TaskResult> testResults = dao.getAllTaskResults();
+
+        REQUIRE(testResults.size() == 2);
+        REQUIRE((testResults[0].token == result.token || testResults[0].token == result2.token) == true);
+        REQUIRE((testResults[0].resultGraph.contains("a") || testResults[0].resultGraph.contains("aa")) == true);
+        REQUIRE(testResults[0].token != testResults[1].token);
+    }
+
+    SECTION( "DeleteTaskResult work" ) {
+        dao.createTaskResult(result);
+        TaskResult test = dao.getTaskResult("test");
+
+        REQUIRE(result.token == test.token);
+        REQUIRE(result.resultGraph.size() == test.resultGraph.size());
+        REQUIRE(result.resultGraph.totalEdgesWeight() == test.resultGraph.totalEdgesWeight());
+        REQUIRE(result.resultGraph.contains("a") == test.resultGraph.contains("a"));
+        REQUIRE(result.resultGraph.nodesHaveEdge("b", "a") == test.resultGraph.nodesHaveEdge("b", "a"));
+
+        dao.deleteTaskResult(test);
+        std::vector<TaskResult> results = dao.getAllTaskResults();
+        REQUIRE(results.size() == 0);
+    }
+
+    SECTION("UpdateTaskResult work") {
+        dao.createTaskResult(result);
+        TaskResult test = dao.getTaskResult("test");
+
+        REQUIRE(result.token == test.token);
+        REQUIRE(result.resultGraph.size() == test.resultGraph.size());
+        REQUIRE(result.resultGraph.totalEdgesWeight() == test.resultGraph.totalEdgesWeight());
+        REQUIRE(result.resultGraph.contains("a") == test.resultGraph.contains("a"));
+        REQUIRE(result.resultGraph.nodesHaveEdge("b", "a") == test.resultGraph.nodesHaveEdge("b", "a"));
+
+        WeightedGraph graph2;
+        graph2.addNode("aa");
+        graph2.addNode("bb");
+        graph2.addNode("cc");
+        graph2.addNode("dd");
+        graph2.addNode("ee");
+        graph2.addEdge("aa", "bb", 500);
+        graph2.addEdge("aa", "cc", 200);
+        graph2.addEdge("aa", "dd", 185);
+        graph2.addEdge("aa", "ee", 205);
+        graph2.addEdge("bb", "cc", 305);
+        graph2.addEdge("bb", "dd", 360);
+        graph2.addEdge("bb", "ee", 340);
+        graph2.addEdge("cc", "dd", 320);
+        graph2.addEdge("cc", "ee", 165);
+        graph2.addEdge("dd", "ee", 302);
+        TaskResult result2("test",graph2);
+
+        dao.updateTaskResult(result2);
+
+        TaskResult test2 = dao.getTaskResult("test");
+
+        REQUIRE(test2.token == result2.token);
+        REQUIRE(test2.resultGraph.size() == result2.resultGraph.size());
+        REQUIRE(test2.resultGraph.totalEdgesWeight() == result2.resultGraph.totalEdgesWeight());
+        REQUIRE(test2.resultGraph.contains("aa") == result2.resultGraph.contains("aa"));
+        REQUIRE(test2.resultGraph.nodesHaveEdge("bb", "aa") == result2.resultGraph.nodesHaveEdge("bb", "aa"));
+    }
+
+
 }
 
 

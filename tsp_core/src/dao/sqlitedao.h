@@ -22,6 +22,7 @@ public:
     void createTask(Task task) override;
     void updateTask(Task task) override;
     void deleteTask(Task task) override;
+    void clearAllTables();
 private:
     sqlite3pp::database db;
 };
