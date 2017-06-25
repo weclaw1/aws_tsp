@@ -1,5 +1,5 @@
 #include "jsonconverter.h"
-#include "tsp\task.h"
+#include "json_converter\taskUtils.h"
 #include <exception>
 JsonConverter::JsonConverter()
 {
@@ -29,14 +29,14 @@ TaskResult JsonConverter::fromJson(nlohmann::json j)
 
 nlohmann::json JsonConverter::toJson(TaskResult taskResult)
 {
-	nlohmann::json j=TaskResult::toJson(taskResult);
+	nlohmann::json j=TaskUtils::toJson(taskResult);
 	return j;
 
 }
 
 
 
-void JsonConverter::addNodeToGraph(nlohmann::json nodes, WeightedGraph graph)
+void JsonConverter::addNodeToGraph(nlohmann::json nodes, WeightedGraph &graph)
 {
 	for (nlohmann::json::iterator it; it != nodes.end(); ++it){
 		std::string nodeId = (*it)["id"].get<std::string>();
@@ -44,7 +44,7 @@ void JsonConverter::addNodeToGraph(nlohmann::json nodes, WeightedGraph graph)
 	}
 }
 
-void JsonConverter::addEdgeToGraph(nlohmann::json edges, WeightedGraph graph)
+void JsonConverter::addEdgeToGraph(nlohmann::json edges, WeightedGraph &graph)
 {
 	for (nlohmann::json::iterator it; it != edges.end(); ++it) {
 

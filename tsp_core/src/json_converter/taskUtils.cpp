@@ -1,11 +1,10 @@
-#include<string>
-#include "weightedgraph.h"
-#include <json.hpp>
-#include "task.h"
+#include "TaskUtils.h"
+#include <string>
+#include "tsp\weightedgraph.h"
+#include "tsp\task.h"
 #include <exception>
 
-
-  Task Task::fromJson(nlohmann::json j)
+ Task TaskUtils::fromJson(nlohmann::json j)
 {
 	  const std::string token = " ";
 	  WeightedGraph  graph;
@@ -15,8 +14,8 @@
 
 	  if (j.find("nodes") != j.end())
 	  {
-		  nlohmann::json nodes = j["nodes"]; 
-		  if (!nodes.empty) {
+		  nlohmann::json nodes = j["nodes"];
+		  if (!nodes.empty()) {
 			  for (nlohmann::json::iterator it = nodes.begin(); it != nodes.end(); ++it)
 			  {
 				  graph.addNode((*it)["id"].get<std::string>());
@@ -29,8 +28,8 @@
 	  if (j.find("edges") != j.end())
 	  {
 		  nlohmann::json edges = j["edges"];
-		  if (!edges.empty) {
- 
+		  if (!edges.empty()) {
+
 			  for (nlohmann::json::iterator it; it != edges.end(); ++it)
 			  {
 				  nlohmann::json edge = *it;
@@ -43,12 +42,12 @@
 
 }
 
-   nlohmann::json TaskResult::toJson(TaskResult taskResult) 
+ nlohmann::json TaskUtils::toJson(TaskResult taskResult)
 {
 	nlohmann::json j;
 
 	std::map<std::string, std::shared_ptr<Node>> map = taskResult.resultGraph.getNodesMap();
-	 
+
 	if (!map.empty()) {
 		j = nlohmann::json{ "nodes" , "edges" };
 		for (std::map<std::string, std::shared_ptr<Node>> ::iterator it = map.begin(); it != map.end(); ++it)
@@ -60,16 +59,15 @@
 			for (Edge &edge : node->edges)
 			{
 				nlohmann::json edgeJ ;
-				
+
 				j["edges"].push_back({
-					{"from" , it->first} , 
+					{"from" , it->first} ,
 					{"to" , edge.node.lock()->name} ,
 					{"length", edge.weight}
 				});
 
-			}		
+			}
 		}
 	}
 	return j;
 }
-
