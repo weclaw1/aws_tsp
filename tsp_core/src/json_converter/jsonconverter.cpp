@@ -1,5 +1,5 @@
 #include "jsonconverter.h"
-#include "json_converter\taskUtils.h"
+#include "taskUtils.h"
 #include <exception>
 JsonConverter::JsonConverter()
 {
@@ -33,8 +33,6 @@ nlohmann::json JsonConverter::toJson(TaskResult taskResult)
 	return j;
 
 }
-
-
 
 void JsonConverter::addNodeToGraph(nlohmann::json nodes, WeightedGraph &graph)
 {

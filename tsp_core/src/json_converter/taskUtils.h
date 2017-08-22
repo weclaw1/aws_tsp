@@ -1,7 +1,7 @@
 #ifndef TASKUTILS_H
 #define TASKUTILS_H
 #include "tsp\task.h"
-#include "C:\Users\Karo\Documents\GitHub\projekt\aws_tsp\tsp_core\externals\json\json.hpp"
+#include <json.hpp>
 
 class TaskUtils
 {
